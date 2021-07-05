@@ -10,6 +10,8 @@ django-extensions = "*"
 django-environ = "*"
 django-cors-headers = "*"
 drf-yasg = "*"
+argon2 = "*"
+argon2-cffi = "*"
 
 [dev-packages]
 autopep8 = "*"
