@@ -1,12 +1,12 @@
 from .base import *  # noqa
-from decouple import config
+from .base import env
 
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = config(
+SECRET_KEY = env(
     "DJANGO_SECRET_KEY",
     default="yAAFljjJsCORKl8Dl5lKS1ZhljZ9p2sfabifm88I1ocoDLcKLy3gJ5rntyTGdCjw",
 )
@@ -17,12 +17,12 @@ ALLOWED_HOSTS = ["0.0.0.0"]
 # ------------------------------------------------------------------------------
 DATABASES = {
     'default': {
-        'ENGINE': config('DATABASE_ENGINE'),
-        'NAME': config('DATABASE_NAME'),
-        'USER': config('DATABASE_USER'),
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': config('DATABASE_HOST'),
-        'PORT': config('DATABASE_PORT')
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT'),
     }
 }
 
